@@ -28,6 +28,9 @@ const operate = function(operator, a, b) {
         case '*':
             return multiply(a, b);
         case '/':
+            if (b === 0) {
+                return "Error: Div by 0";
+            }
             return divide(a, b);
         default:
             return null;
@@ -81,6 +84,13 @@ function inputOperator(operator) {
     if (currentOperator !== null && !shouldResetDisplay) {
         secondNumber = display.textContent;
         const result = operate(currentOperator, firstNumber, secondNumber);
+        
+        if (typeof result === 'string') {
+            updateDisplay(result);
+            clear();
+            return;
+        }
+        
         updateDisplay(roundResult(result));
         firstNumber = roundResult(result).toString();
     } else {
@@ -90,7 +100,6 @@ function inputOperator(operator) {
     currentOperator = operator;
     shouldResetDisplay = true;
 }
-
 // Event listeners for operator buttons
 operatorButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -103,6 +112,13 @@ function evaluate() {
     
     secondNumber = display.textContent;
     const result = operate(currentOperator, firstNumber, secondNumber);
+    
+    if (typeof result === 'string') {
+        updateDisplay(result);
+        clear();
+        return;
+    }
+    
     updateDisplay(roundResult(result));
     currentOperator = null;
     shouldResetDisplay = true;
