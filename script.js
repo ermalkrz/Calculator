@@ -33,3 +33,27 @@ const operate = function(operator, a, b) {
             return null;
     }
 };
+// Calculator state
+let firstNumber = '';
+let secondNumber = '';
+let currentOperator = null;
+let shouldResetDisplay = false;
+
+// DOM elements
+const display = document.getElementById('display');
+const numberButtons = document.querySelectorAll('.number');
+const operatorButtons = document.querySelectorAll('.operator');
+const equalsButton = document.getElementById('equals');
+const clearButton = document.getElementById('clear');
+const decimalButton = document.getElementById('decimal');
+const backspaceButton = document.getElementById('backspace');
+
+// Update display
+function updateDisplay(value) {
+    display.textContent = value;
+}
+
+// Round long decimals
+function roundResult(number) {
+    return Math.round(number * 100000000) / 100000000;
+}
