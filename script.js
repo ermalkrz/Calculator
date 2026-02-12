@@ -110,3 +110,15 @@ function evaluate() {
 
 // Event listener for equals button
 equalsButton.addEventListener('click', evaluate);
+
+// Clear everything
+function clear() {
+    firstNumber = '';
+    secondNumber = '';
+    currentOperator = null;
+    shouldResetDisplay = false;
+    updateDisplay('0');
+}
+
+// Event listener for clear button
+clearButton.addEventListener('click', clear);
