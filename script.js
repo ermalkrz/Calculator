@@ -75,3 +75,25 @@ numberButtons.forEach(button => {
         inputNumber(button.dataset.number);
     });
 });
+
+// Handle operator input
+function inputOperator(operator) {
+    if (currentOperator !== null && !shouldResetDisplay) {
+        secondNumber = display.textContent;
+        const result = operate(currentOperator, firstNumber, secondNumber);
+        updateDisplay(roundResult(result));
+        firstNumber = roundResult(result).toString();
+    } else {
+        firstNumber = display.textContent;
+    }
+    
+    currentOperator = operator;
+    shouldResetDisplay = true;
+}
+
+// Event listeners for operator buttons
+operatorButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        inputOperator(button.dataset.operator);
+    });
+});
