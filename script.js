@@ -57,3 +57,21 @@ function updateDisplay(value) {
 function roundResult(number) {
     return Math.round(number * 100000000) / 100000000;
 }
+// Handle number input
+function inputNumber(number) {
+    if (display.textContent === '0' || shouldResetDisplay) {
+        updateDisplay(number);
+        shouldResetDisplay = false;
+    } else {
+        if (display.textContent.length < 12) {
+            updateDisplay(display.textContent + number);
+        }
+    }
+}
+
+// Event listeners for number buttons
+numberButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        inputNumber(button.dataset.number);
+    });
+});
