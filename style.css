@@ -52,3 +52,71 @@ body {
     transition: all 0.2s;
     font-weight: 600;
 }
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.number {
+    background: #505050;
+    color: #fff;
+}
+
+.number:hover {
+    background: #606060;
+}
+
+.operator {
+    background: #ff9500;
+    color: #fff;
+}
+
+.operator:hover {
+    background: #ffb143;
+}
+
+.clear {
+    background: #d4d4d2;
+    color: #000;
+    grid-column: span 2;
+}
+
+.clear:hover {
+    background: #e0e0e0;
+}
+
+.backspace {
+    background: #d4d4d2;
+    color: #000;
+}
+
+.backspace:hover {
+    background: #e0e0e0;
+}
+
+.equals {
+    background: #34c759;
+    color: #fff;
+    grid-row: span 2;
+}
+
+.equals:hover {
+    background: #4cd964;
+}
+
+.zero {
+    grid-column: span 2;
+}
+
+.decimal {
+    background: #505050;
+    color: #fff;
+}
+
+.decimal:hover {
+    background: #606060;
+}
