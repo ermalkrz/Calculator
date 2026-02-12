@@ -36,6 +36,7 @@ const operate = function(operator, a, b) {
             return null;
     }
 };
+
 // Calculator state
 let firstNumber = '';
 let secondNumber = '';
@@ -60,6 +61,7 @@ function updateDisplay(value) {
 function roundResult(number) {
     return Math.round(number * 100000000) / 100000000;
 }
+
 // Handle number input
 function inputNumber(number) {
     if (display.textContent === '0' || shouldResetDisplay) {
@@ -87,7 +89,10 @@ function inputOperator(operator) {
         
         if (typeof result === 'string') {
             updateDisplay(result);
-            clear();
+            firstNumber = '';
+            secondNumber = '';
+            currentOperator = null;
+            shouldResetDisplay = true;
             return;
         }
         
@@ -100,12 +105,14 @@ function inputOperator(operator) {
     currentOperator = operator;
     shouldResetDisplay = true;
 }
+
 // Event listeners for operator buttons
 operatorButtons.forEach(button => {
     button.addEventListener('click', () => {
         inputOperator(button.dataset.operator);
     });
 });
+
 // Handle equals
 function evaluate() {
     if (currentOperator === null || shouldResetDisplay) return;
@@ -115,7 +122,10 @@ function evaluate() {
     
     if (typeof result === 'string') {
         updateDisplay(result);
-        clear();
+        firstNumber = '';
+        secondNumber = '';
+        currentOperator = null;
+        shouldResetDisplay = true;
         return;
     }
     
@@ -138,3 +148,20 @@ function clear() {
 
 // Event listener for clear button
 clearButton.addEventListener('click', clear);
+
+// Handle decimal input
+function inputDecimal() {
+    // If we're starting a new number
+    if (shouldResetDisplay) {
+        updateDisplay('0.');
+        shouldResetDisplay = false;
+        return;
+    }
+
+    // Prevent multiple decimals
+    if (!display.textContent.includes('.')) {
+        updateDisplay(display.textContent + '.');
+    }
+}
+// Event listener for decimal button
+decimalButton.addEventListener('click', inputDecimal);
