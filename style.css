@@ -5,25 +5,26 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Courier New', monospace;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #000000;
 }
 
 .calculator {
-    background: #2d2d2d;
-    border-radius: 20px;
+    background: #0d0d0d;
+    border-radius: 15px;
     padding: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 40px rgba(0, 255, 0, 0.3);
     width: 320px;
+    border: 2px solid #00ff00;
 }
 
 .display {
-    background: #1a1a1a;
-    color: #fff;
+    background: #000000;
+    color: #00ff00;
     font-size: 2.5rem;
     padding: 20px;
     text-align: right;
@@ -35,6 +36,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    border: 1px solid #00ff00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    font-family: 'Courier New', monospace;
 }
 
 .buttons {
@@ -47,14 +51,16 @@ body {
     padding: 20px;
     font-size: 1.5rem;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.2s;
     font-weight: 600;
+    font-family: 'Courier New', monospace;
 }
 
 .btn:hover {
     transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.6);
 }
 
 .btn:active {
@@ -62,50 +68,59 @@ body {
 }
 
 .number {
-    background: #505050;
-    color: #fff;
+    background: #1a3a1a;
+    color: #00ff00;
+    border: 1px solid #00ff00;
 }
 
 .number:hover {
-    background: #606060;
+    background: #2a4a2a;
 }
 
 .operator {
-    background: #ff9500;
-    color: #fff;
+    background: #003300;
+    color: #00ff41;
+    border: 1px solid #00ff41;
 }
 
 .operator:hover {
-    background: #ffb143;
+    background: #004400;
 }
 
 .clear {
-    background: #d4d4d2;
-    color: #000;
+    background: #1a0000;
+    color: #ff0000;
     grid-column: span 2;
+    border: 1px solid #ff0000;
 }
 
 .clear:hover {
-    background: #e0e0e0;
+    background: #2a0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
 }
 
 .backspace {
-    background: #d4d4d2;
-    color: #000;
+    background: #1a1a00;
+    color: #ffff00;
+    border: 1px solid #ffff00;
 }
 
 .backspace:hover {
-    background: #e0e0e0;
+    background: #2a2a00;
+    box-shadow: 0 0 15px rgba(255, 255, 0, 0.6);
 }
 
 .equals {
-    background: #34c759;
-    color: #fff;
+    background: #00ff00;
+    color: #000000;
     grid-row: span 2;
+    border: 1px solid #00ff00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
 }
 
 .equals:hover {
-    background: #4cd964;
+    background: #00ff41;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
 }
 
 .zero {
@@ -113,10 +128,11 @@ body {
 }
 
 .decimal {
-    background: #505050;
-    color: #fff;
+    background: #1a3a1a;
+    color: #00ff00;
+    border: 1px solid #00ff00;
 }
 
 .decimal:hover {
-    background: #606060;
+    background: #2a4a2a;
 }
