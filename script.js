@@ -97,3 +97,16 @@ operatorButtons.forEach(button => {
         inputOperator(button.dataset.operator);
     });
 });
+// Handle equals
+function evaluate() {
+    if (currentOperator === null || shouldResetDisplay) return;
+    
+    secondNumber = display.textContent;
+    const result = operate(currentOperator, firstNumber, secondNumber);
+    updateDisplay(roundResult(result));
+    currentOperator = null;
+    shouldResetDisplay = true;
+}
+
+// Event listener for equals button
+equalsButton.addEventListener('click', evaluate);
