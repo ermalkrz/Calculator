@@ -165,3 +165,13 @@ function inputDecimal() {
 }
 // Event listener for decimal button
 decimalButton.addEventListener('click', inputDecimal);
+
+function backspace() {
+    if (display.textContent.length > 1) {
+        updateDisplay(display.textContent.slice(0, -1));
+    } else {
+        updateDisplay('0');
+    }
+}
+
+backspaceButton.addEventListener('click', backspace);
